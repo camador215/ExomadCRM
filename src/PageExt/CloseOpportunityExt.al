@@ -18,6 +18,8 @@ pageextension 80101 "DIMA Close Opportunity Ext" extends "Close Opportunity"
             trigger OnAfterValidate()
             begin
                 UpdateDeliveryLinesVisibility();
+                if Rec."Action Taken" = Rec."Action Taken"::Won then
+                    CalculateCurrentValue();
             end;
         }
     }
@@ -70,5 +72,29 @@ pageextension 80101 "DIMA Close Opportunity Ext" extends "Close Opportunity"
         // nuevamente el cronograma.
         if Opp."Sales Document No." = '' then
             ShowDeliveryLines := true;
+    end;
+
+    local procedure CalculateCurrentValue()
+    var
+        Opportunity: Record Opportunity;
+        OpportunityEntry: Record "Opportunity Entry";
+    begin
+        // Buscar la oportunidad
+        if not Opportunity.Get(Rec."Opportunity No.") then
+            exit;
+
+        // Si ya tiene una cotización asociada, no modificar el valor.
+        if (Opportunity."Sales Document Type" = Opportunity."Sales Document Type"::Quote) and
+           (Opportunity."Sales Document No." <> '')
+        then
+            exit;
+
+        // Buscar la última Opportunity Entry activa.
+        OpportunityEntry.Reset();
+        OpportunityEntry.SetRange("Opportunity No.", Opportunity."No.");
+        OpportunityEntry.SetRange(Active, true);
+
+        if OpportunityEntry.FindLast() then
+            Rec."Calcd. Current Value (LCY)" := OpportunityEntry."Estimated Value (LCY)";
     end;
 }
