@@ -1,0 +1,31 @@
+{
+    "id": "281248f0-e3a4-4983-ae3a-39487f5b8463",
+    "name": "ExomadCRM",
+    "publisher": "Default Publisher",
+    "version": "1.0.0.5",
+    "brief": "",
+    "description": "",
+    "privacyStatement": "",
+    "EULA": "",
+    "help": "",
+    "url": "",
+    "logo": "",
+    "dependencies": [
+    ],
+    "screenshots": [],
+    "platform": "1.0.0.1",
+    "application": "28.1.49838.49886",
+    "idRanges": [
+        {
+            "from": 80100,
+            "to": 80149
+        }
+    ],
+    "resourceExposurePolicy": {
+        "allowDebugging": true,
+        "allowDownloadingSource": true,
+        "includeSourceInSymbolFile": true
+    },
+    "runtime": "15.0",
+    "features": ["TranslationFile", "GenerateCaptions"]
+}
