@@ -1,4 +1,4 @@
-pageextension 80109 "DIMA Sales Order Subform Ext" extends "Sales Order Subform"
+pageextension 80104 "DIMA Sales Order Subform Ext" extends "Sales Order Subform"
 {
     layout
     {

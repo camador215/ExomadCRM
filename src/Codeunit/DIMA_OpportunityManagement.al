@@ -103,9 +103,22 @@ codeunit 80103 "DIMA Opportunity Management"
 
         // Crear pedido de venta.
         SalesOrderNo := CreateSalesOrder(OpportunityEntry."Opportunity No.");
+        if (SalesOrderNo <> '') and
+           Confirm('Se creo el pedido de venta %1. Desea abrirlo?', true, SalesOrderNo) then
+            OpenSalesOrder(SalesOrderNo);
 
         // Actualmente no abrimos automáticamente el pedido.
         // Puedes agregar esa lógica posteriormente si la necesitas.
+    end;
+
+    local procedure OpenSalesOrder(SalesOrderNo: Code[20])
+    var
+        SalesHeader: Record "Sales Header";
+    begin
+        SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::Order);
+        SalesHeader.SetRange("No.", SalesOrderNo);
+        if SalesHeader.FindFirst() then
+            Page.Run(Page::"Sales Order", SalesHeader);
     end;
 
 
@@ -195,6 +208,7 @@ codeunit 80103 "DIMA Opportunity Management"
         SalesHeader.Insert(true);
 
         SalesHeader.Validate("Sell-to Customer No.", CustomerNo);
+        SalesHeader.Validate("Currency Code", Opportunity."Currency Code");
         SalesHeader.Modify(true);
 
         repeat
