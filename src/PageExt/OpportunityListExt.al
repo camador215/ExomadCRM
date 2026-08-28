@@ -15,8 +15,20 @@ pageextension 80105 "DIMA Opportunity List Ext" extends "Opportunity List"
                 ToolTip = 'Especifica el valor estimado de la oportunidad.';
             }
         }
+        addbefore("Calcd. Current Value (LCY)")
+        {
+            field("Calcd. Current Value (ACY)"; Rec."Calcd. Current Value (ACY)")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Especifica el valor calculado actual de la oportunidad.';
+            }
+        }
 
         modify("Estimated Value (LCY)")
+        {
+            Visible = false;
+        }
+        modify("Calcd. Current Value (LCY)")
         {
             Visible = false;
         }

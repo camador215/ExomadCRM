@@ -1,4 +1,4 @@
-codeunit 80103 "DIMA Opportunity Management"
+codeunit 80113 "DIMA Opportunity Management"
 {
     // ============================================================
     // CAMBIO PRINCIPAL
@@ -225,9 +225,6 @@ codeunit 80103 "DIMA Opportunity Management"
             SalesLine.Validate(Quantity, DeliveryLine.Cantidad);
             SalesLine.Validate("Unit Price", DeliveryLine."Precio Unitario");
             SalesLine.Validate("Shipment Date", DeliveryLine."Fecha Entrega");
-
-            SalesLine."Description 2" := DeliveryLine.Descripcion;
-
             SalesLine.Insert(true);
 
             SalesLine."Description 2" := DeliveryLine.Descripcion;

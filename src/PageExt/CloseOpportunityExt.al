@@ -12,6 +12,20 @@ pageextension 80101 "DIMA Close Opportunity Ext" extends "Close Opportunity"
                 Visible = ShowDeliveryLines;
             }
         }
+        addbefore("Calcd. Current Value (LCY)")
+        {
+            field("Calcd. Current Value (ACY)"; Rec."Calcd. Current Value (ACY)")
+            {
+                ApplicationArea = All;
+                Caption = 'Ventas ($)';
+                ToolTip = 'Especifica el valor actual calculado del movimiento de la oportunidad.';
+            }
+        }
+
+        modify("Calcd. Current Value (LCY)")
+        {
+            Visible = false;
+        }
 
         modify(OptionWon)
         {

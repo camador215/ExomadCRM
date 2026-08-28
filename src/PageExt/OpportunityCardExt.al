@@ -24,7 +24,7 @@ pageextension 80103 "DIMA Opportunity Broker Ext" extends "Opportunity Card"
             {
                 ApplicationArea = All;
                 ToolTip = 'Divisa en la que se negocia esta Oportunidad de Venta. Solo es posible editar si la Oportunidad está como "No iniciada"';
-                Editable = CurrencyEditable;
+                Editable = false;
             }
         }
     }

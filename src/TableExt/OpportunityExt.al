@@ -18,6 +18,16 @@ tableextension 80103 "DIMA Opportunity Ext" extends Opportunity
             Editable = false;
             FieldClass = FlowField;
         }
+        field(80102; "Calcd. Current Value (ACY)"; Decimal)
+        {
+            AutoFormatExpression = "Currency Code";
+            AutoFormatType = 1;
+            CalcFormula = sum("Opportunity Entry"."Calcd. Current Value (LCY)" where("Opportunity No." = field("No."),
+                                                                                      Active = const(true)));
+            Caption = 'Valor actual calculado ($)';
+            Editable = false;
+            FieldClass = FlowField;
+        }
     }
 
     trigger OnDelete()

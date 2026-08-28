@@ -15,7 +15,19 @@ pageextension 80100 "Opp. Statistics FactBox Ext" extends "Opportunity Statistic
                 ToolTip = 'Especifica el valor estimado de la oportunidad.';
             }
         }
+        addafter("Probability %")
+        {
+            field("Calcd. Current Value (ACY)"; Rec."Calcd. Current Value (ACY)")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Especifica el valor calculado actual de la oportunidad.';
+            }
+        }
         modify("Estimated Value (LCY)")
+        {
+            Visible = false;
+        }
+        modify("Calcd. Current Value (LCY)")
         {
             Visible = false;
         }
