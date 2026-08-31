@@ -84,7 +84,7 @@ codeunit 80103 "DIMA Opportunity Entry Events"
                 OpportunityEntry."Currency Code");
     end;
 
-    local procedure ConvertLCYToACY(
+    procedure ConvertLCYToACY(
         AmountLCY: Decimal;
         CurrencyCode: Code[10]): Decimal
     var
@@ -106,5 +106,22 @@ codeunit 80103 "DIMA Opportunity Entry Events"
                     CurrencyCode)
             )
         );
+    end;
+
+    [EventSubscriber(
+        ObjectType::Table,
+        Database::"Opportunity Entry",
+        'OnUpdateEstimatesOnBeforeModifyOpportunityEntry',
+        '',
+        false,
+        false)]
+    local procedure OnUpdateEstimatesOnBeforeModifyOpportunityEntry(
+        var OpportunityEntry: Record "Opportunity Entry";
+        SalesHeader: Record "Sales Header")
+    begin
+        OpportunityEntry."Estimated Value (ACY)" :=
+            ConvertLCYToACY(
+                OpportunityEntry."Estimated Value (LCY)",
+                OpportunityEntry."Currency Code");
     end;
 }
