@@ -1,18 +1,6 @@
 codeunit 80113 "DIMA Opportunity Management"
 {
     // ============================================================
-    // CAMBIO PRINCIPAL
-    //
-    // ANTES:
-    // La validación estaba en OnBeforeUpdateEstimates.
-    //
-    // PROBLEMA:
-    // UpdateEstimates() también se ejecuta al modificar campos
-    // como WON, por lo que el Confirm aparecía demasiado pronto.
-    //
-    // AHORA:
-    // La validación está en OnFinishWizardOnAfterUpdateEstimates.
-    //
     // Este evento se ejecuta dentro de FinishWizard(), después
     // de que el usuario pulsa Aceptar para finalizar.
     //
@@ -32,42 +20,64 @@ codeunit 80113 "DIMA Opportunity Management"
         false)]
     local procedure OpportunityEntry_OnFinishWizardOnAfterUpdateEstimates(
         OpportunityEntry: Record "Opportunity Entry")
+    var
+        Opportunity: Record Opportunity;
     begin
         // Solo validamos cuando la oportunidad se está ganando.
         if OpportunityEntry."Action Taken" <> OpportunityEntry."Action Taken"::Won then
             exit;
 
-        // Si no existen líneas de suministro, no validamos.
-        if not HasDeliveryLines(OpportunityEntry."Opportunity No.") then
-            exit;
+        // Obtener la oportunidad actual.
+        if not Opportunity.Get(OpportunityEntry."Opportunity No.") then
+            Error(
+                'No se encontró la oportunidad %1.',
+                OpportunityEntry."Opportunity No."
+            );
 
-        // Si los importes coinciden, continúa normalmente.
-        if not HasDeliveryValueMismatch(
-            OpportunityEntry."Opportunity No.",
-            OpportunityEntry."Calcd. Current Value (LCY)")
-        then
-            exit;
+        // ======================================================== 
+        // VALIDACIÓN DEL CRONOGRAMA 
+        // 
+        // Solo exigimos registros en DIMA Opportunity Delivery 
+        // cuando la oportunidad todavía NO tiene un documento 
+        // de venta asociado. 
+        // 
+        // Si "Sales Document No." tiene valor, significa que la 
+        // oportunidad ya está asociada a un documento de venta y 
+        // no se realiza esta validación. 
+        // ========================================================
+        if Opportunity."Sales Document No." = '' then begin
+            if not HasDeliveryLines(OpportunityEntry."Opportunity No.") then
+                Error(
+                    'No se puede ganar la oportunidad %1 porque no tiene registros asociados en el Cronograma de Suministro.',
+                    OpportunityEntry."Opportunity No.");
 
-        // ========================================================
-        // El Confirm AHORA aparece solamente al finalizar
-        // el wizard mediante Aceptar.
-        //
-        // Si el usuario responde NO:
-        //
-        //     Error('')
-        //
-        // cancela FinishWizard(), hace rollback y permite que
-        // el usuario vuelva a intentar el proceso.
-        // ========================================================
-        if not Confirm(
-            'La suma del cronograma de suministro (%1) difiere del valor actual calculado (%2). ¿Desea continuar?',
-            false,
-            GetDeliveryPlanTotal(OpportunityEntry."Opportunity No."),
-            OpportunityEntry."Calcd. Current Value (LCY)")
-        then
-            Error('');
+            // Si los importes coinciden, continúa normalmente.
+            if not HasDeliveryValueMismatch(
+                OpportunityEntry."Opportunity No.",
+                OpportunityEntry."Calcd. Current Value (LCY)")
+            then
+                exit;
+
+            // ========================================================
+            // El Confirm AHORA aparece solamente al finalizar
+            // el wizard mediante Aceptar.
+            //
+            // Si el usuario responde NO:
+            //
+            //     Error('')
+            //
+            // cancela FinishWizard(), hace rollback y permite que
+            // el usuario vuelva a intentar el proceso.
+            // ========================================================
+            if not Confirm(
+                'La suma del cronograma de suministro (%1) difiere del valor actual calculado (%2). ¿Desea continuar?',
+                false,
+                GetDeliveryPlanTotal(OpportunityEntry."Opportunity No."),
+                OpportunityEntry."Calcd. Current Value (LCY)")
+            then
+                Error('');
+        end;
     end;
-
 
     // ============================================================
     // CREAR PEDIDO DESPUÉS DE FINALIZAR LA OPORTUNIDAD

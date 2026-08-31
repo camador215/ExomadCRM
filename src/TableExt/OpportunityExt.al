@@ -12,7 +12,7 @@ tableextension 80103 "DIMA Opportunity Ext" extends Opportunity
         {
             AutoFormatExpression = "Currency Code";
             AutoFormatType = 1;
-            CalcFormula = sum("Opportunity Entry"."Estimated Value (LCY)" where("Opportunity No." = field("No."),
+            CalcFormula = sum("Opportunity Entry"."Estimated Value (ACY)" where("Opportunity No." = field("No."),
                                                                                  Active = const(true)));
             Caption = 'Valor estimado ($)';
             Editable = false;
@@ -22,7 +22,7 @@ tableextension 80103 "DIMA Opportunity Ext" extends Opportunity
         {
             AutoFormatExpression = "Currency Code";
             AutoFormatType = 1;
-            CalcFormula = sum("Opportunity Entry"."Calcd. Current Value (LCY)" where("Opportunity No." = field("No."),
+            CalcFormula = sum("Opportunity Entry"."Calcd. Current Value (ACY)" where("Opportunity No." = field("No."),
                                                                                       Active = const(true)));
             Caption = 'Valor actual calculado ($)';
             Editable = false;
