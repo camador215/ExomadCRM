@@ -32,7 +32,7 @@ table 80102 "DIMA Opportunity Delivery"
                     exit;
 
                 if Item.Get("Nro. Producto") then begin
-                    Descripcion := StrSubstNo('%1 - %2', "Line No." div 10000, Item.Description);
+                    Descripcion := Item.Description;
                     "Unidad Medida" := Item."Sales Unit of Measure";
                 end;
             end;
@@ -185,34 +185,6 @@ table 80102 "DIMA Opportunity Delivery"
             else
                 "Line No." := 10000;
         end;
-
-        UpdateOpportunityCurrentValue("Opportunity No.", Importe);
-    end;
-
-    trigger OnModify()
-    begin
-        if xRec."Opportunity No." = "Opportunity No." then begin
-            UpdateOpportunityCurrentValue(
-                "Opportunity No.",
-                Importe - xRec.Importe);
-
-            exit;
-        end;
-
-        UpdateOpportunityCurrentValue(
-            xRec."Opportunity No.",
-            -xRec.Importe);
-
-        UpdateOpportunityCurrentValue(
-            "Opportunity No.",
-            Importe);
-    end;
-
-    trigger OnDelete()
-    begin
-        UpdateOpportunityCurrentValue(
-            "Opportunity No.",
-            -Importe);
     end;
 
     // ================================================================
@@ -233,40 +205,6 @@ table 80102 "DIMA Opportunity Delivery"
     local procedure CalculateAmount()
     begin
         Importe := Cantidad * "Precio Unitario";
-    end;
-
-    local procedure UpdateOpportunityCurrentValue(
-        OpportunityNo: Code[20];
-        AmountAdjustment: Decimal)
-    var
-        DeliveryLine: Record "DIMA Opportunity Delivery";
-        OpportunityEntry: Record "Opportunity Entry";
-        TotalAmount: Decimal;
-    begin
-        if OpportunityNo = '' then
-            exit;
-
-        DeliveryLine.Reset();
-        DeliveryLine.SetRange("Opportunity No.", OpportunityNo);
-
-        if DeliveryLine.FindSet() then
-            repeat
-                TotalAmount += DeliveryLine.Importe;
-            until DeliveryLine.Next() = 0;
-
-        TotalAmount += AmountAdjustment;
-
-        OpportunityEntry.Reset();
-        OpportunityEntry.SetRange(
-            "Opportunity No.",
-            OpportunityNo);
-
-        if OpportunityEntry.FindSet() then
-            repeat
-                OpportunityEntry."Calcd. Current Value (LCY)" := TotalAmount;
-                OpportunityEntry."Estimated Value (LCY)" := TotalAmount;
-                OpportunityEntry.Modify(false);
-            until OpportunityEntry.Next() = 0;
     end;
 
     procedure ValidateLine()

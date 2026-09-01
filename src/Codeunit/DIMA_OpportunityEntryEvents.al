@@ -1,4 +1,4 @@
-codeunit 80103 "DIMA Opportunity Entry Events"
+codeunit 80104 "DIMA Opportunity Entry Events"
 {
     [EventSubscriber(
         ObjectType::Table,
@@ -118,10 +118,27 @@ codeunit 80103 "DIMA Opportunity Entry Events"
     local procedure OnUpdateEstimatesOnBeforeModifyOpportunityEntry(
         var OpportunityEntry: Record "Opportunity Entry";
         SalesHeader: Record "Sales Header")
+    var
+        Opportunity: Record Opportunity;
     begin
-        OpportunityEntry."Estimated Value (ACY)" :=
-            ConvertLCYToACY(
-                OpportunityEntry."Estimated Value (LCY)",
-                OpportunityEntry."Currency Code");
+        Opportunity.Get(OpportunityEntry."Opportunity No.");
+        if (OpportunityEntry."Action Taken" = OpportunityEntry."Action Taken"::Won) then begin
+            if SalesHeader.Get(SalesHeader."Document Type"::Quote, Opportunity."Sales Document No.") then begin
+                OpportunityEntry."Calcd. Current Value (ACY)" :=
+                ConvertLCYToACY(
+                    OpportunityEntry.GetSalesDocValue(SalesHeader),
+                    OpportunityEntry."Currency Code");
+                OpportunityEntry."Estimated Value (ACY)" :=
+                ConvertLCYToACY(
+                    OpportunityEntry.GetSalesDocValue(SalesHeader),
+                    OpportunityEntry."Currency Code");
+            end;
+        end;
+
+        if (OpportunityEntry."Action Taken" = OpportunityEntry."Action Taken"::Lost) then begin
+            OpportunityEntry."Calcd. Current Value (ACY)" := 0;
+            OpportunityEntry."Estimated Value (ACY)" := 0;
+        end;
+
     end;
 }

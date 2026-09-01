@@ -179,6 +179,12 @@ page 80101 "DIMA Opportunity Delivery"
         UpdateTotals();
     end;
 
+    trigger OnAfterGetCurrRecord()
+    begin
+        UpdateActionState();
+        UpdateTotals();
+    end;
+
     local procedure UpdateActionState()
     var
         Opportunity: Record Opportunity;

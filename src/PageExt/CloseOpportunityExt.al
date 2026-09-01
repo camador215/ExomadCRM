@@ -19,6 +19,7 @@ pageextension 80101 "DIMA Close Opportunity Ext" extends "Close Opportunity"
                 ApplicationArea = All;
                 Caption = 'Ventas ($)';
                 ToolTip = 'Especifica el valor actual calculado del movimiento de la oportunidad.';
+                Enabled = CurrentValueACYEnable;
             }
         }
 
@@ -32,8 +33,12 @@ pageextension 80101 "DIMA Close Opportunity Ext" extends "Close Opportunity"
             trigger OnAfterValidate()
             begin
                 UpdateDeliveryLinesVisibility();
-                if Rec."Action Taken" = Rec."Action Taken"::Won then
+                if Rec."Action Taken" = Rec."Action Taken"::Won then begin
+                    CurrentValueACYEnable := true;
+
                     CalculateCurrentValue();
+                end else
+                    CurrentValueACYEnable := false;
             end;
         }
     }
@@ -41,6 +46,12 @@ pageextension 80101 "DIMA Close Opportunity Ext" extends "Close Opportunity"
     var
         ShowDeliveryLines: Boolean;
         Opp: Record Opportunity;
+        CurrentValueACYEnable: Boolean;
+
+    trigger OnAfterGetCurrRecord()
+    begin
+        CurrentValueACYEnable := true;
+    end;
 
     trigger OnOpenPage()
     begin
@@ -92,6 +103,8 @@ pageextension 80101 "DIMA Close Opportunity Ext" extends "Close Opportunity"
     var
         Opportunity: Record Opportunity;
         OpportunityEntry: Record "Opportunity Entry";
+        DIMAOpportunityEntryEvents: Codeunit "DIMA Opportunity Entry Events";
+        Ventas: Decimal;
     begin
         // Buscar la oportunidad
         if not Opportunity.Get(Rec."Opportunity No.") then
@@ -105,10 +118,16 @@ pageextension 80101 "DIMA Close Opportunity Ext" extends "Close Opportunity"
 
         // Buscar la última Opportunity Entry activa.
         OpportunityEntry.Reset();
-        OpportunityEntry.SetRange("Opportunity No.", Opportunity."No.");
+        OpportunityEntry.SetRange("Opportunity No.", Rec."Opportunity No.");
         OpportunityEntry.SetRange(Active, true);
 
-        if OpportunityEntry.FindLast() then
+        if OpportunityEntry.FindLast() then begin
             Rec."Calcd. Current Value (LCY)" := OpportunityEntry."Estimated Value (LCY)";
+            Ventas := DIMAOpportunityEntryEvents.ConvertLCYToACY(
+                OpportunityEntry."Estimated Value (LCY)",
+                OpportunityEntry."Currency Code");
+            Rec."Calcd. Current Value (ACY)" := Ventas;
+            Rec."Estimated Value (ACY)" := Ventas;
+        end;
     end;
 }

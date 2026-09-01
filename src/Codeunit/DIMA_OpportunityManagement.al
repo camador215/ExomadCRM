@@ -22,10 +22,16 @@ codeunit 80113 "DIMA Opportunity Management"
         OpportunityEntry: Record "Opportunity Entry")
     var
         Opportunity: Record Opportunity;
+        Ventas: Decimal;
     begin
         // Solo validamos cuando la oportunidad se está ganando.
         if OpportunityEntry."Action Taken" <> OpportunityEntry."Action Taken"::Won then
             exit;
+
+        if OpportunityEntry."Currency Code" <> '' then
+            Ventas := OpportunityEntry."Calcd. Current Value (ACY)"
+        else
+            Ventas := OpportunityEntry."Calcd. Current Value (LCY)";
 
         // Obtener la oportunidad actual.
         if not Opportunity.Get(OpportunityEntry."Opportunity No.") then
@@ -54,7 +60,7 @@ codeunit 80113 "DIMA Opportunity Management"
             // Si los importes coinciden, continúa normalmente.
             if not HasDeliveryValueMismatch(
                 OpportunityEntry."Opportunity No.",
-                OpportunityEntry."Calcd. Current Value (LCY)")
+                Ventas)
             then
                 exit;
 
@@ -73,7 +79,7 @@ codeunit 80113 "DIMA Opportunity Management"
                 'La suma del cronograma de suministro (%1) difiere del valor actual calculado (%2). ¿Desea continuar?',
                 false,
                 GetDeliveryPlanTotal(OpportunityEntry."Opportunity No."),
-                OpportunityEntry."Calcd. Current Value (LCY)")
+                Ventas)
             then
                 Error('');
         end;

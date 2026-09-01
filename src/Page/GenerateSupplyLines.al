@@ -137,11 +137,11 @@ page 80105 "DIMA Generate Supply Lines"
     trigger OnQueryClosePage(CloseAction: Action): Boolean
     begin
         if CloseAction <> ACTION::OK then
-           exit(true);
+            exit(true);
 
         if not ValidateData() then begin
-           Message(GetValidationMessage());
-           exit(false);
+            Message(GetValidationMessage());
+            exit(false);
         end;
 
         exit(true);
@@ -152,7 +152,7 @@ page 80105 "DIMA Generate Supply Lines"
         ShowDaysInterval := DatePattern = DatePattern::"Desde fecha inicial";
 
         if not ShowDaysInterval then
-           IntervalInDays := 0;
+            IntervalInDays := 0;
     end;
 
     local procedure ValidateData(): Boolean
@@ -160,29 +160,29 @@ page 80105 "DIMA Generate Supply Lines"
         Item: Record Item;
     begin
         if NumberOfLines < 1 then
-           exit(false);
+            exit(false);
 
         if NumberOfLines > 1000 then
-           exit(false);
+            exit(false);
 
         if ItemNo = '' then
-           exit(false);
+            exit(false);
 
         if not Item.Get(ItemNo) then
-           exit(false);
+            exit(false);
 
         if Quantity <= 0 then
-           exit(false);
+            exit(false);
 
         if UnitPrice <= 0 then
-           exit(false);
+            exit(false);
 
         if StartDate = 0D then
-           exit(false);
+            exit(false);
 
         if (DatePattern = DatePattern::"Desde fecha inicial") and
            (IntervalInDays <= 0) then
-           exit(false);
+            exit(false);
 
         exit(true);
     end;
@@ -192,29 +192,29 @@ page 80105 "DIMA Generate Supply Lines"
         Item: Record Item;
     begin
         if NumberOfLines < 1 then
-           exit('La cantidad de líneas debe ser mayor que cero.');
+            exit('La cantidad de líneas debe ser mayor que cero.');
 
         if NumberOfLines > 1000 then
-           exit('La cantidad de líneas no puede superar 1000.');
+            exit('La cantidad de líneas no puede superar 1000.');
 
         if ItemNo = '' then
-           exit('Debe seleccionar un producto.');
+            exit('Debe seleccionar un producto.');
 
         if not Item.Get(ItemNo) then
-           exit(StrSubstNo('El producto %1 no existe.', ItemNo));
+            exit(StrSubstNo('El producto %1 no existe.', ItemNo));
 
         if Quantity <= 0 then
-           exit('La cantidad debe ser mayor que cero.');
+            exit('La cantidad debe ser mayor que cero.');
 
         if UnitPrice <= 0 then
-           exit('El precio unitario debe ser mayor que cero.');
+            exit('El precio unitario debe ser mayor que cero.');
 
         if StartDate = 0D then
-           exit('Debe indicar una fecha inicial.');
+            exit('Debe indicar una fecha inicial.');
 
         if (DatePattern = DatePattern::"Desde fecha inicial") and
            (IntervalInDays <= 0) then
-           exit('El intervalo en días debe ser mayor que cero.');
+            exit('El intervalo en días debe ser mayor que cero.');
 
         exit('');
     end;
@@ -227,30 +227,32 @@ page 80105 "DIMA Generate Supply Lines"
         MonthDate: Date;
     begin
         if not ValidateData() then begin
-           Message(GetValidationMessage());
-           exit;
+            Message(GetValidationMessage());
+            exit;
         end;
 
         DeliveryLine.Reset();
         DeliveryLine.SetRange("Opportunity No.", OpportunityNo);
         if DeliveryLine.FindLast() then
-           NextLineNo := DeliveryLine."Line No." + 10000
+            NextLineNo := DeliveryLine."Line No." + 10000
         else
-           NextLineNo := 10000;
+            NextLineNo := 10000;
 
         for Index := 0 to NumberOfLines - 1 do begin
-           DeliveryLine.Init();
-           DeliveryLine."Opportunity No." := OpportunityNo;
-           DeliveryLine."Line No." := NextLineNo + (Index * 10000);
-           DeliveryLine."Número de entregas" := NumberOfLines;
-           DeliveryLine."Fecha inicial" := StartDate;
-           DeliveryLine."Patrón de fechas" := DatePattern;
-           DeliveryLine."Intervalo en días" := IntervalInDays;
-           DeliveryLine.Validate("Nro. Producto", ItemNo);
-           DeliveryLine.Validate(Cantidad, Quantity);
-           DeliveryLine.Validate("Precio Unitario", UnitPrice);
-           DeliveryLine.Validate("Fecha Entrega", GetDeliveryDate(Index));
-           DeliveryLine.Insert(true);
+            DeliveryLine.Init();
+            DeliveryLine."Opportunity No." := OpportunityNo;
+            DeliveryLine."Line No." := NextLineNo + (Index * 10000);
+            DeliveryLine."Número de entregas" := NumberOfLines;
+            DeliveryLine."Fecha inicial" := StartDate;
+            DeliveryLine."Patrón de fechas" := DatePattern;
+            DeliveryLine."Intervalo en días" := IntervalInDays;
+            DeliveryLine.Validate("Nro. Producto", ItemNo);
+            DeliveryLine.Validate(Cantidad, Quantity);
+            DeliveryLine.Validate("Precio Unitario", UnitPrice);
+            DeliveryLine.Validate("Fecha Entrega", GetDeliveryDate(Index));
+            DeliveryLine.Insert(true);
+            DeliveryLine.Descripcion := StrSubstNo('%1 - %2', DeliveryLine."Line No." div 10000, DeliveryLine.Descripcion);
+            DeliveryLine.Modify(false);
         end;
     end;
 

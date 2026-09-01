@@ -15,7 +15,7 @@ pageextension 80103 "DIMA Opportunity Broker Ext" extends "Opportunity Card"
                 ApplicationArea = All;
                 Editable = false;
                 SubPageLink = "Opportunity No." = field("No.");
-                Visible = Rec."Sales Document No." <> '';
+                Visible = (Rec.Status = Rec.Status::Won) and ((Rec."Sales Document Type" <> Rec."Sales Document Type"::Quote) and (Rec."Sales Document No." <> ''));
             }
         }
         addbefore(Status)
