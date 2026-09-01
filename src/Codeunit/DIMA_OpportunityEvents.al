@@ -22,5 +22,6 @@ codeunit 80105 "DIMA Opportunity Events"
             SalesHeader."Opportunity No.");
 
         DeliveryLine.DeleteAll();
+        Commit();
     end;
 }

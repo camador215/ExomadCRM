@@ -43,7 +43,124 @@ pageextension 80101 "DIMA Close Opportunity Ext" extends "Close Opportunity"
         }
     }
 
+    //////
+    actions
+    {
+        // ============================================================
+        // SOLUCIÓN DIMA
+        // Ocultamos el Sales Quote estándar para utilizar nuestra
+        // propia acción con la misma funcionalidad + actualización ACY.
+        // ============================================================
+
+        modify(SalesQuote)
+        {
+            Visible = false;
+        }
+
+        // ============================================================
+        // SOLUCIÓN DIMA
+        // Creamos nuestro propio botón Sales Quote.
+        // ============================================================
+
+        addlast(Processing)
+        {
+            action(DIMASalesQuote)
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Cotización de venta';
+                Image = Quote;
+                InFooterBar = true;
+                ToolTip = 'Modificar la Cotización de Venta asignada a esta Oportunidad.';
+
+                trigger OnAction()
+                var
+                    SalesHeader: Record "Sales Header";
+                    Opportunity: Record Opportunity;
+                    Ventas: Decimal;
+                    VentasACY: Decimal;
+                begin
+                    // SOLUCIÓN DIMA:
+                    // Obtiene la Opportunity correspondiente al
+                    // Opportunity Entry actual de la página.
+                    if not Opportunity.Get(Rec."Opportunity No.") then
+                        exit;
+
+                    // SOLUCIÓN DIMA:
+                    // Abre la cotización.
+                    //
+                    // IMPORTANTE:
+                    // ShowQuote() es modal/sincrónico en este flujo.
+                    // Cuando el usuario cierre la Sales Quote,
+                    // la ejecución continuará en la siguiente línea.
+                    Opportunity.ShowQuote();
+
+                    // SOLUCIÓN DIMA:
+                    // Después de cerrar la Sales Quote, obtenemos
+                    // nuevamente el documento para tomar sus valores
+                    // actualizados.
+                    if SalesHeader.Get(
+                        SalesHeader."Document Type"::Quote,
+                        Opportunity."Sales Document No.")
+                    then begin
+
+                        // ====================================================
+                        // TU LÓGICA ESTÁNDAR
+                        // ====================================================
+
+                        // Actualiza el Estimated Value (LCY) exactamente
+                        // como lo hace la acción estándar de Microsoft.
+                        Ventas := Rec.GetSalesDocValue(SalesHeader);
+                        Rec."Estimated Value (LCY)" := Ventas;
+                        Rec."Calcd. Current Value (LCY)" := Ventas;
+
+                        // ====================================================
+                        // SOLUCIÓN DIMA
+                        // ====================================================
+
+                        // Convierte el valor LCY obtenido de la cotización
+                        // a la divisa configurada en la Opportunity Entry.
+                        VentasACY := DIMAOpportunityEntryEvents.ConvertLCYToACY(
+                            Ventas,
+                            Rec."Currency Code");
+                        Rec."Estimated Value (ACY)" := VentasACY;
+                        Rec."Calcd. Current Value (ACY)" := VentasACY;
+
+                        // ====================================================
+                        // SOLUCIÓN DIMA
+                        // ====================================================
+
+                        // Guarda tanto el Estimated Value (LCY) como
+                        // el Estimated Value (ACY).
+                        Rec.Modify();
+
+                        // Actualiza la página para mostrar los nuevos valores.
+                        CurrPage.Update();
+                    end;
+                end;
+            }
+        }
+
+        // ============================================================
+        // SOLUCIÓN DIMA
+        // Colocamos nuestra acción dentro de la categoría "New",
+        // igual que la acción estándar SalesQuote.
+        // ============================================================
+
+        addlast(Promoted)
+        {
+            group(DIMACategoryNew)
+            {
+                Caption = 'Ver';
+
+                actionref(DIMASalesQuote_Promoted; DIMASalesQuote)
+                {
+                }
+            }
+        }
+    }
+
     var
+        DIMAOpportunityEntryEvents: Codeunit "DIMA Opportunity Entry Events";
         ShowDeliveryLines: Boolean;
         Opp: Record Opportunity;
         CurrentValueACYEnable: Boolean;

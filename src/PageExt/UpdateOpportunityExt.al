@@ -39,10 +39,10 @@ pageextension 80107 "Update Opportunity Ext" extends "Update Opportunity"
             action(DIMASalesQuote)
             {
                 ApplicationArea = Basic, Suite;
-                Caption = '&Sales Quote';
+                Caption = 'Cotización de venta';
                 Image = Quote;
                 InFooterBar = true;
-                ToolTip = 'Create a sales quote based on the opportunity.';
+                ToolTip = 'Modificar la Cotización de Venta asignada a esta Oportunidad.';
 
                 trigger OnAction()
                 var
@@ -118,7 +118,7 @@ pageextension 80107 "Update Opportunity Ext" extends "Update Opportunity"
         {
             group(DIMACategoryNew)
             {
-                Caption = 'Nuevo';
+                Caption = 'Ver';
 
                 actionref(DIMASalesQuote_Promoted; DIMASalesQuote)
                 {
