@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-09-08T02:00:11.9856544Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-09-08T03:15:12.7440353Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -348,7 +348,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!Price.Value</Value>
+                                                    <Value>=Fields!UnitPrice.Value</Value>
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <Format>'$' 0.00;('$' 0.00)</Format>
@@ -1144,7 +1144,7 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
       <Width>19.23222cm</Width>
       <Page>
         <PageHeader>
-          <Height>8.37362cm</Height>
+          <Height>9.01321cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1355,7 +1355,7 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>5.14632cm</Top>
+              <Top>5.53438cm</Top>
               <Left>3.32372cm</Left>
               <Height>0.38806cm</Height>
               <Width>8.36647cm</Width>
@@ -1385,7 +1385,7 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>5.53438cm</Top>
+              <Top>5.92244cm</Top>
               <Left>3.32372cm</Left>
               <Height>0.38806cm</Height>
               <Width>8.36647cm</Width>
@@ -1416,7 +1416,7 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>5.92244cm</Top>
+              <Top>6.3105cm</Top>
               <Left>3.32372cm</Left>
               <Height>0.38806cm</Height>
               <Width>8.36647cm</Width>
@@ -1447,7 +1447,7 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>6.3105cm</Top>
+              <Top>6.69856cm</Top>
               <Left>3.32372cm</Left>
               <Height>0.38806cm</Height>
               <Width>8.36647cm</Width>
@@ -1478,7 +1478,7 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>6.69856cm</Top>
+              <Top>7.08662cm</Top>
               <Left>3.32372cm</Left>
               <Height>0.38806cm</Height>
               <Width>8.36647cm</Width>
@@ -1509,7 +1509,7 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>7.08662cm</Top>
+              <Top>7.47468cm</Top>
               <Left>3.32372cm</Left>
               <Height>0.38806cm</Height>
               <Width>8.36647cm</Width>
@@ -1585,8 +1585,8 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>7.47468cm</Top>
-              <Left>0.95865cm</Left>
+              <Top>7.86274cm</Top>
+              <Left>0.96173cm</Left>
               <Height>0.38806cm</Height>
               <Width>10.73154cm</Width>
               <ZIndex>13</ZIndex>
@@ -1754,11 +1754,12 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=First(Fields!DocumentDate.Value, "DataSet_Result")</Value>
+                      <Value>="Santa Cruz, " &amp; First(Fields!DocumentDate2.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
                         <FontWeight>Bold</FontWeight>
+                        <Format>d</Format>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -1800,6 +1801,35 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
               <Height>0.38806cm</Height>
               <Width>8.36647cm</Width>
               <ZIndex>20</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>5pt</PaddingLeft>
+                <PaddingRight>5pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="CustomerAddress2">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(3)</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>5.14632cm</Top>
+              <Left>3.3268cm</Left>
+              <Height>0.38806cm</Height>
+              <Width>8.36647cm</Width>
+              <ZIndex>21</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2713,8 +2743,17 @@ mRg4PXpj5B+LHhVfBvjvUdIgDi0QrJbF23Fo2GQScDJ6j6ivvevk79qzw5eQ+OLXWIklmtL60xkLkRtF
         <Field Name="DueDate">
           <DataField>DueDate</DataField>
         </Field>
+        <Field Name="DocumentDate2">
+          <DataField>DocumentDate2</DataField>
+        </Field>
         <Field Name="LocationCode">
           <DataField>LocationCode</DataField>
+        </Field>
+        <Field Name="UnitPrice">
+          <DataField>UnitPrice</DataField>
+        </Field>
+        <Field Name="UnitPriceFormat">
+          <DataField>UnitPriceFormat</DataField>
         </Field>
       </Fields>
       <Query>
