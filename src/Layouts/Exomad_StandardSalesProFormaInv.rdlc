@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-09-08T01:22:58.8046294Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-09-08T02:00:11.9856544Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -24,298 +24,6 @@
       <rd:DataSourceID>1a5de7ac-8dbe-45c9-99bc-f4ddea696ce6</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="DocumentDate">
-          <DataField>DocumentDate</DataField>
-        </Field>
-        <Field Name="CompanyPicture">
-          <DataField>CompanyPicture</DataField>
-        </Field>
-        <Field Name="CompanyEMail">
-          <DataField>CompanyEMail</DataField>
-        </Field>
-        <Field Name="CompanyHomePage">
-          <DataField>CompanyHomePage</DataField>
-        </Field>
-        <Field Name="CompanyPhoneNo">
-          <DataField>CompanyPhoneNo</DataField>
-        </Field>
-        <Field Name="CompanyVATRegNo">
-          <DataField>CompanyVATRegNo</DataField>
-        </Field>
-        <Field Name="CompanyAddress1">
-          <DataField>CompanyAddress1</DataField>
-        </Field>
-        <Field Name="CompanyAddress2">
-          <DataField>CompanyAddress2</DataField>
-        </Field>
-        <Field Name="CompanyAddress3">
-          <DataField>CompanyAddress3</DataField>
-        </Field>
-        <Field Name="CompanyAddress4">
-          <DataField>CompanyAddress4</DataField>
-        </Field>
-        <Field Name="CompanyAddress5">
-          <DataField>CompanyAddress5</DataField>
-        </Field>
-        <Field Name="CompanyAddress6">
-          <DataField>CompanyAddress6</DataField>
-        </Field>
-        <Field Name="CompanyAddress7">
-          <DataField>CompanyAddress7</DataField>
-        </Field>
-        <Field Name="CompanyAddress8">
-          <DataField>CompanyAddress8</DataField>
-        </Field>
-        <Field Name="CustomerAddress1">
-          <DataField>CustomerAddress1</DataField>
-        </Field>
-        <Field Name="CustomerAddress2">
-          <DataField>CustomerAddress2</DataField>
-        </Field>
-        <Field Name="CustomerAddress3">
-          <DataField>CustomerAddress3</DataField>
-        </Field>
-        <Field Name="CustomerAddress4">
-          <DataField>CustomerAddress4</DataField>
-        </Field>
-        <Field Name="CustomerAddress5">
-          <DataField>CustomerAddress5</DataField>
-        </Field>
-        <Field Name="CustomerAddress6">
-          <DataField>CustomerAddress6</DataField>
-        </Field>
-        <Field Name="CustomerAddress7">
-          <DataField>CustomerAddress7</DataField>
-        </Field>
-        <Field Name="CustomerAddress8">
-          <DataField>CustomerAddress8</DataField>
-        </Field>
-        <Field Name="SellToContactPhoneNoLbl">
-          <DataField>SellToContactPhoneNoLbl</DataField>
-        </Field>
-        <Field Name="SellToContactMobilePhoneNoLbl">
-          <DataField>SellToContactMobilePhoneNoLbl</DataField>
-        </Field>
-        <Field Name="SellToContactEmailLbl">
-          <DataField>SellToContactEmailLbl</DataField>
-        </Field>
-        <Field Name="BillToContactPhoneNoLbl">
-          <DataField>BillToContactPhoneNoLbl</DataField>
-        </Field>
-        <Field Name="BillToContactMobilePhoneNoLbl">
-          <DataField>BillToContactMobilePhoneNoLbl</DataField>
-        </Field>
-        <Field Name="BillToContactEmailLbl">
-          <DataField>BillToContactEmailLbl</DataField>
-        </Field>
-        <Field Name="SellToContactPhoneNo">
-          <DataField>SellToContactPhoneNo</DataField>
-        </Field>
-        <Field Name="SellToContactMobilePhoneNo">
-          <DataField>SellToContactMobilePhoneNo</DataField>
-        </Field>
-        <Field Name="SellToContactEmail">
-          <DataField>SellToContactEmail</DataField>
-        </Field>
-        <Field Name="BillToContactPhoneNo">
-          <DataField>BillToContactPhoneNo</DataField>
-        </Field>
-        <Field Name="BillToContactMobilePhoneNo">
-          <DataField>BillToContactMobilePhoneNo</DataField>
-        </Field>
-        <Field Name="BillToContactEmail">
-          <DataField>BillToContactEmail</DataField>
-        </Field>
-        <Field Name="YourReference">
-          <DataField>YourReference</DataField>
-        </Field>
-        <Field Name="ExternalDocumentNo">
-          <DataField>ExternalDocumentNo</DataField>
-        </Field>
-        <Field Name="DocumentNo">
-          <DataField>DocumentNo</DataField>
-        </Field>
-        <Field Name="CompanyLegalOffice">
-          <DataField>CompanyLegalOffice</DataField>
-        </Field>
-        <Field Name="SalesPersonName">
-          <DataField>SalesPersonName</DataField>
-        </Field>
-        <Field Name="ShipmentMethodDescription">
-          <DataField>ShipmentMethodDescription</DataField>
-        </Field>
-        <Field Name="Currency">
-          <DataField>Currency</DataField>
-        </Field>
-        <Field Name="CustomerVATRegNo">
-          <DataField>CustomerVATRegNo</DataField>
-        </Field>
-        <Field Name="CustomerVATRegistrationNoLbl">
-          <DataField>CustomerVATRegistrationNoLbl</DataField>
-        </Field>
-        <Field Name="PageLbl">
-          <DataField>PageLbl</DataField>
-        </Field>
-        <Field Name="DocumentTitleLbl">
-          <DataField>DocumentTitleLbl</DataField>
-        </Field>
-        <Field Name="YourReferenceLbl">
-          <DataField>YourReferenceLbl</DataField>
-        </Field>
-        <Field Name="ExternalDocumentNoLbl">
-          <DataField>ExternalDocumentNoLbl</DataField>
-        </Field>
-        <Field Name="CompanyLegalOfficeLbl">
-          <DataField>CompanyLegalOfficeLbl</DataField>
-        </Field>
-        <Field Name="SalesPersonLbl">
-          <DataField>SalesPersonLbl</DataField>
-        </Field>
-        <Field Name="EMailLbl">
-          <DataField>EMailLbl</DataField>
-        </Field>
-        <Field Name="HomePageLbl">
-          <DataField>HomePageLbl</DataField>
-        </Field>
-        <Field Name="CompanyPhoneNoLbl">
-          <DataField>CompanyPhoneNoLbl</DataField>
-        </Field>
-        <Field Name="ShipmentMethodDescriptionLbl">
-          <DataField>ShipmentMethodDescriptionLbl</DataField>
-        </Field>
-        <Field Name="CurrencyLbl">
-          <DataField>CurrencyLbl</DataField>
-        </Field>
-        <Field Name="ItemLbl">
-          <DataField>ItemLbl</DataField>
-        </Field>
-        <Field Name="TariffLbl">
-          <DataField>TariffLbl</DataField>
-        </Field>
-        <Field Name="UnitPriceLbl">
-          <DataField>UnitPriceLbl</DataField>
-        </Field>
-        <Field Name="CountryOfManufactuctureLbl">
-          <DataField>CountryOfManufactuctureLbl</DataField>
-        </Field>
-        <Field Name="AmountLbl">
-          <DataField>AmountLbl</DataField>
-        </Field>
-        <Field Name="VATPctLbl">
-          <DataField>VATPctLbl</DataField>
-        </Field>
-        <Field Name="VATAmountLbl">
-          <DataField>VATAmountLbl</DataField>
-        </Field>
-        <Field Name="TotalWeightLbl">
-          <DataField>TotalWeightLbl</DataField>
-        </Field>
-        <Field Name="TotalAmountLbl">
-          <DataField>TotalAmountLbl</DataField>
-        </Field>
-        <Field Name="TotalAmountInclVATLbl">
-          <DataField>TotalAmountInclVATLbl</DataField>
-        </Field>
-        <Field Name="QuantityLbl">
-          <DataField>QuantityLbl</DataField>
-        </Field>
-        <Field Name="NetWeightLbl">
-          <DataField>NetWeightLbl</DataField>
-        </Field>
-        <Field Name="DeclartionLbl">
-          <DataField>DeclartionLbl</DataField>
-        </Field>
-        <Field Name="SignatureLbl">
-          <DataField>SignatureLbl</DataField>
-        </Field>
-        <Field Name="SignatureNameLbl">
-          <DataField>SignatureNameLbl</DataField>
-        </Field>
-        <Field Name="SignaturePositionLbl">
-          <DataField>SignaturePositionLbl</DataField>
-        </Field>
-        <Field Name="VATRegNoLbl">
-          <DataField>VATRegNoLbl</DataField>
-        </Field>
-        <Field Name="ShowWorkDescription">
-          <DataField>ShowWorkDescription</DataField>
-        </Field>
-        <Field Name="ItemDescription">
-          <DataField>ItemDescription</DataField>
-        </Field>
-        <Field Name="CountryOfManufacturing">
-          <DataField>CountryOfManufacturing</DataField>
-        </Field>
-        <Field Name="Tariff">
-          <DataField>Tariff</DataField>
-        </Field>
-        <Field Name="Quantity">
-          <DataField>Quantity</DataField>
-        </Field>
-        <Field Name="QuantityFormat">
-          <DataField>QuantityFormat</DataField>
-        </Field>
-        <Field Name="Price">
-          <DataField>Price</DataField>
-        </Field>
-        <Field Name="NetWeight">
-          <DataField>NetWeight</DataField>
-        </Field>
-        <Field Name="NetWeightFormat">
-          <DataField>NetWeightFormat</DataField>
-        </Field>
-        <Field Name="LineAmount">
-          <DataField>LineAmount</DataField>
-        </Field>
-        <Field Name="VATPct">
-          <DataField>VATPct</DataField>
-        </Field>
-        <Field Name="VATPctFormat">
-          <DataField>VATPctFormat</DataField>
-        </Field>
-        <Field Name="VATAmount">
-          <DataField>VATAmount</DataField>
-        </Field>
-        <Field Name="WorkDescriptionLineNumber">
-          <DataField>WorkDescriptionLineNumber</DataField>
-        </Field>
-        <Field Name="WorkDescriptionLine">
-          <DataField>WorkDescriptionLine</DataField>
-        </Field>
-        <Field Name="TotalWeight">
-          <DataField>TotalWeight</DataField>
-        </Field>
-        <Field Name="TotalWeightFormat">
-          <DataField>TotalWeightFormat</DataField>
-        </Field>
-        <Field Name="TotalValue">
-          <DataField>TotalValue</DataField>
-        </Field>
-        <Field Name="TotalVATAmount">
-          <DataField>TotalVATAmount</DataField>
-        </Field>
-        <Field Name="TotalAmountInclVAT">
-          <DataField>TotalAmountInclVAT</DataField>
-        </Field>
-        <Field Name="CustomerRegistrationNumber">
-          <DataField>CustomerRegistrationNumber</DataField>
-        </Field>
-        <Field Name="DueDate">
-          <DataField>DueDate</DataField>
-        </Field>
-        <Field Name="LocationCode">
-          <DataField>LocationCode</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -329,7 +37,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>3.20101cm</Height>
+                  <Height>2.16913cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1049,7 +757,7 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
             <KeepTogether>true</KeepTogether>
             <DataSetName>DataSet_Result</DataSetName>
             <Left>0.03222cm</Left>
-            <Height>3.20101cm</Height>
+            <Height>2.16913cm</Height>
             <Width>19.2cm</Width>
             <Style>
               <Border>
@@ -1074,7 +782,7 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>3.565cm</Top>
+            <Top>3.2475cm</Top>
             <Left>0.9525cm</Left>
             <Height>0.6cm</Height>
             <Width>4.57034cm</Width>
@@ -1113,7 +821,7 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>4.01774cm</Top>
+            <Top>3.70024cm</Top>
             <Left>0.95251cm</Left>
             <Height>0.38806cm</Height>
             <Width>10.00614cm</Width>
@@ -1153,7 +861,7 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>5.18192cm</Top>
+            <Top>4.86442cm</Top>
             <Left>0.95865cm</Left>
             <Height>0.38806cm</Height>
             <Width>9.99692cm</Width>
@@ -1193,7 +901,7 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>5.56998cm</Top>
+            <Top>5.25248cm</Top>
             <Left>0.9525cm</Left>
             <Height>0.38806cm</Height>
             <Width>10.00614cm</Width>
@@ -1233,7 +941,7 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>5.95804cm</Top>
+            <Top>5.64054cm</Top>
             <Left>0.9525cm</Left>
             <Height>0.38806cm</Height>
             <Width>10.00307cm</Width>
@@ -1273,7 +981,7 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>6.3461cm</Top>
+            <Top>6.0286cm</Top>
             <Left>0.95865cm</Left>
             <Height>0.38806cm</Height>
             <Width>9.99692cm</Width>
@@ -1306,7 +1014,7 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>4.79386cm</Top>
+            <Top>4.47636cm</Top>
             <Left>3.15916cm</Left>
             <Height>0.38806cm</Height>
             <Width>7.79641cm</Width>
@@ -1347,7 +1055,7 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>4.4058cm</Top>
+            <Top>4.0883cm</Top>
             <Left>0.95558cm</Left>
             <Height>0.38806cm</Height>
             <Width>10.00307cm</Width>
@@ -1381,7 +1089,7 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>7.07811cm</Top>
+            <Top>6.76061cm</Top>
             <Left>0.96173cm</Left>
             <Height>0.38806cm</Height>
             <Width>9.99692cm</Width>
@@ -1397,8 +1105,40 @@ Cstr(Fields!CompanyPhoneNo.Value))</Hidden>
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="Literal">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Code.NumberToWords(CDec(Last(Fields!TotalValue.Value, "DataSet_Result")))</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>2.34552cm</Top>
+            <Left>1.35514cm</Left>
+            <Height>0.38806cm</Height>
+            <Width>16.55417cm</Width>
+            <ZIndex>10</ZIndex>
+            <Style>
+              <Border>
+                <Color>LightGrey</Color>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>8.53333cm</Height>
+        <Height>7.14867cm</Height>
         <Style />
       </Body>
       <Width>19.23222cm</Width>
@@ -2319,12 +2059,6 @@ Santa Cruz - Bolivia</Value>
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -2371,7 +2105,201 @@ Public Function SetData(NewData as Object)
   Return True
 End Function
 
-</Code>
+Public Function NumberToWords(ByVal value As Decimal) As String
+
+    Dim whole As Long = Math.Floor(value)
+    Dim cents As Integer = CInt(Math.Round((value - whole) * 100))
+
+    Dim result As String = ConvertWholeNumber(whole)
+
+    result = result &amp; " " &amp; cents.ToString("00") &amp; "/100 United States Dollars"
+
+    Return result.Trim()
+
+End Function
+
+
+Private Function ConvertWholeNumber(ByVal number As Long) As String
+
+    If number = 0 Then
+        Return "Zero"
+    End If
+
+    Dim result As String = ""
+
+    ' Billions
+    If number &gt;= 1000000000 Then
+        result = result &amp; ConvertWholeNumber(number \ 1000000000) &amp; " Billion"
+        number = number Mod 1000000000
+
+        If number &gt; 0 Then
+            result = result &amp; " "
+        End If
+    End If
+
+    ' Millions
+    If number &gt;= 1000000 Then
+        result = result &amp; ConvertWholeNumber(number \ 1000000) &amp; " Million"
+        number = number Mod 1000000
+
+        If number &gt; 0 Then
+            result = result &amp; " "
+        End If
+    End If
+
+    ' Thousands
+    If number &gt;= 1000 Then
+        result = result &amp; ConvertWholeNumber(number \ 1000) &amp; " Thousand"
+        number = number Mod 1000
+
+        If number &gt; 0 Then
+            result = result &amp; " "
+        End If
+    End If
+
+    ' Hundreds
+    If number &gt;= 100 Then
+
+        result = result &amp; ConvertBelowThousand(number \ 100)
+        result = result &amp; " Hundred"
+
+        number = number Mod 100
+
+        If number &gt; 0 Then
+            result = result &amp; " and "
+        End If
+
+    ElseIf number &gt; 0 And result &lt;&gt; "" Then
+
+        ' British/financial style:
+        ' Thousand and Twenty
+        ' Million and Five Hundred
+        result = result &amp; "and "
+
+    End If
+
+    If number &gt; 0 Then
+        result = result &amp; ConvertBelowHundred(number)
+    End If
+
+    Return result.Trim()
+
+End Function
+
+
+Private Function ConvertBelowThousand(ByVal number As Long) As String
+
+    If number = 0 Then
+        Return ""
+    End If
+
+    If number &gt;= 100 Then
+        Return ConvertBelowHundred(number \ 100)
+    End If
+
+    Return ConvertBelowHundred(number)
+
+End Function
+
+
+Private Function ConvertBelowHundred(ByVal number As Long) As String
+
+    Select Case number
+
+        Case 0
+            Return ""
+
+        Case 1
+            Return "One"
+
+        Case 2
+            Return "Two"
+
+        Case 3
+            Return "Three"
+
+        Case 4
+            Return "Four"
+
+        Case 5
+            Return "Five"
+
+        Case 6
+            Return "Six"
+
+        Case 7
+            Return "Seven"
+
+        Case 8
+            Return "Eight"
+
+        Case 9
+            Return "Nine"
+
+        Case 10
+            Return "Ten"
+
+        Case 11
+            Return "Eleven"
+
+        Case 12
+            Return "Twelve"
+
+        Case 13
+            Return "Thirteen"
+
+        Case 14
+            Return "Fourteen"
+
+        Case 15
+            Return "Fifteen"
+
+        Case 16
+            Return "Sixteen"
+
+        Case 17
+            Return "Seventeen"
+
+        Case 18
+            Return "Eighteen"
+
+        Case 19
+            Return "Nineteen"
+
+        Case 20
+            Return "Twenty"
+
+        Case 30
+            Return "Thirty"
+
+        Case 40
+            Return "Forty"
+
+        Case 50
+            Return "Fifty"
+
+        Case 60
+            Return "Sixty"
+
+        Case 70
+            Return "Seventy"
+
+        Case 80
+            Return "Eighty"
+
+        Case 90
+            Return "Ninety"
+
+        Case Else
+
+            Dim tens As Long = (number \ 10) * 10
+            Dim units As Long = number Mod 10
+
+            Return ConvertBelowHundred(tens) &amp; " " &amp; ConvertBelowHundred(units)
+
+    End Select
+
+End Function</Code>
   <EmbeddedImages>
     <EmbeddedImage Name="img22gimp2">
       <MIMEType>image/jpeg</MIMEType>
@@ -2503,4 +2431,296 @@ mRg4PXpj5B+LHhVfBvjvUdIgDi0QrJbF23Fo2GQScDJ6j6ivvevk79qzw5eQ+OLXWIklmtL60xkLkRtF
   </EmbeddedImages>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="DocumentDate">
+          <DataField>DocumentDate</DataField>
+        </Field>
+        <Field Name="CompanyPicture">
+          <DataField>CompanyPicture</DataField>
+        </Field>
+        <Field Name="CompanyEMail">
+          <DataField>CompanyEMail</DataField>
+        </Field>
+        <Field Name="CompanyHomePage">
+          <DataField>CompanyHomePage</DataField>
+        </Field>
+        <Field Name="CompanyPhoneNo">
+          <DataField>CompanyPhoneNo</DataField>
+        </Field>
+        <Field Name="CompanyVATRegNo">
+          <DataField>CompanyVATRegNo</DataField>
+        </Field>
+        <Field Name="CompanyAddress1">
+          <DataField>CompanyAddress1</DataField>
+        </Field>
+        <Field Name="CompanyAddress2">
+          <DataField>CompanyAddress2</DataField>
+        </Field>
+        <Field Name="CompanyAddress3">
+          <DataField>CompanyAddress3</DataField>
+        </Field>
+        <Field Name="CompanyAddress4">
+          <DataField>CompanyAddress4</DataField>
+        </Field>
+        <Field Name="CompanyAddress5">
+          <DataField>CompanyAddress5</DataField>
+        </Field>
+        <Field Name="CompanyAddress6">
+          <DataField>CompanyAddress6</DataField>
+        </Field>
+        <Field Name="CompanyAddress7">
+          <DataField>CompanyAddress7</DataField>
+        </Field>
+        <Field Name="CompanyAddress8">
+          <DataField>CompanyAddress8</DataField>
+        </Field>
+        <Field Name="CustomerAddress1">
+          <DataField>CustomerAddress1</DataField>
+        </Field>
+        <Field Name="CustomerAddress2">
+          <DataField>CustomerAddress2</DataField>
+        </Field>
+        <Field Name="CustomerAddress3">
+          <DataField>CustomerAddress3</DataField>
+        </Field>
+        <Field Name="CustomerAddress4">
+          <DataField>CustomerAddress4</DataField>
+        </Field>
+        <Field Name="CustomerAddress5">
+          <DataField>CustomerAddress5</DataField>
+        </Field>
+        <Field Name="CustomerAddress6">
+          <DataField>CustomerAddress6</DataField>
+        </Field>
+        <Field Name="CustomerAddress7">
+          <DataField>CustomerAddress7</DataField>
+        </Field>
+        <Field Name="CustomerAddress8">
+          <DataField>CustomerAddress8</DataField>
+        </Field>
+        <Field Name="SellToContactPhoneNoLbl">
+          <DataField>SellToContactPhoneNoLbl</DataField>
+        </Field>
+        <Field Name="SellToContactMobilePhoneNoLbl">
+          <DataField>SellToContactMobilePhoneNoLbl</DataField>
+        </Field>
+        <Field Name="SellToContactEmailLbl">
+          <DataField>SellToContactEmailLbl</DataField>
+        </Field>
+        <Field Name="BillToContactPhoneNoLbl">
+          <DataField>BillToContactPhoneNoLbl</DataField>
+        </Field>
+        <Field Name="BillToContactMobilePhoneNoLbl">
+          <DataField>BillToContactMobilePhoneNoLbl</DataField>
+        </Field>
+        <Field Name="BillToContactEmailLbl">
+          <DataField>BillToContactEmailLbl</DataField>
+        </Field>
+        <Field Name="SellToContactPhoneNo">
+          <DataField>SellToContactPhoneNo</DataField>
+        </Field>
+        <Field Name="SellToContactMobilePhoneNo">
+          <DataField>SellToContactMobilePhoneNo</DataField>
+        </Field>
+        <Field Name="SellToContactEmail">
+          <DataField>SellToContactEmail</DataField>
+        </Field>
+        <Field Name="BillToContactPhoneNo">
+          <DataField>BillToContactPhoneNo</DataField>
+        </Field>
+        <Field Name="BillToContactMobilePhoneNo">
+          <DataField>BillToContactMobilePhoneNo</DataField>
+        </Field>
+        <Field Name="BillToContactEmail">
+          <DataField>BillToContactEmail</DataField>
+        </Field>
+        <Field Name="YourReference">
+          <DataField>YourReference</DataField>
+        </Field>
+        <Field Name="ExternalDocumentNo">
+          <DataField>ExternalDocumentNo</DataField>
+        </Field>
+        <Field Name="DocumentNo">
+          <DataField>DocumentNo</DataField>
+        </Field>
+        <Field Name="CompanyLegalOffice">
+          <DataField>CompanyLegalOffice</DataField>
+        </Field>
+        <Field Name="SalesPersonName">
+          <DataField>SalesPersonName</DataField>
+        </Field>
+        <Field Name="ShipmentMethodDescription">
+          <DataField>ShipmentMethodDescription</DataField>
+        </Field>
+        <Field Name="Currency">
+          <DataField>Currency</DataField>
+        </Field>
+        <Field Name="CustomerVATRegNo">
+          <DataField>CustomerVATRegNo</DataField>
+        </Field>
+        <Field Name="CustomerVATRegistrationNoLbl">
+          <DataField>CustomerVATRegistrationNoLbl</DataField>
+        </Field>
+        <Field Name="PageLbl">
+          <DataField>PageLbl</DataField>
+        </Field>
+        <Field Name="DocumentTitleLbl">
+          <DataField>DocumentTitleLbl</DataField>
+        </Field>
+        <Field Name="YourReferenceLbl">
+          <DataField>YourReferenceLbl</DataField>
+        </Field>
+        <Field Name="ExternalDocumentNoLbl">
+          <DataField>ExternalDocumentNoLbl</DataField>
+        </Field>
+        <Field Name="CompanyLegalOfficeLbl">
+          <DataField>CompanyLegalOfficeLbl</DataField>
+        </Field>
+        <Field Name="SalesPersonLbl">
+          <DataField>SalesPersonLbl</DataField>
+        </Field>
+        <Field Name="EMailLbl">
+          <DataField>EMailLbl</DataField>
+        </Field>
+        <Field Name="HomePageLbl">
+          <DataField>HomePageLbl</DataField>
+        </Field>
+        <Field Name="CompanyPhoneNoLbl">
+          <DataField>CompanyPhoneNoLbl</DataField>
+        </Field>
+        <Field Name="ShipmentMethodDescriptionLbl">
+          <DataField>ShipmentMethodDescriptionLbl</DataField>
+        </Field>
+        <Field Name="CurrencyLbl">
+          <DataField>CurrencyLbl</DataField>
+        </Field>
+        <Field Name="ItemLbl">
+          <DataField>ItemLbl</DataField>
+        </Field>
+        <Field Name="TariffLbl">
+          <DataField>TariffLbl</DataField>
+        </Field>
+        <Field Name="UnitPriceLbl">
+          <DataField>UnitPriceLbl</DataField>
+        </Field>
+        <Field Name="CountryOfManufactuctureLbl">
+          <DataField>CountryOfManufactuctureLbl</DataField>
+        </Field>
+        <Field Name="AmountLbl">
+          <DataField>AmountLbl</DataField>
+        </Field>
+        <Field Name="VATPctLbl">
+          <DataField>VATPctLbl</DataField>
+        </Field>
+        <Field Name="VATAmountLbl">
+          <DataField>VATAmountLbl</DataField>
+        </Field>
+        <Field Name="TotalWeightLbl">
+          <DataField>TotalWeightLbl</DataField>
+        </Field>
+        <Field Name="TotalAmountLbl">
+          <DataField>TotalAmountLbl</DataField>
+        </Field>
+        <Field Name="TotalAmountInclVATLbl">
+          <DataField>TotalAmountInclVATLbl</DataField>
+        </Field>
+        <Field Name="QuantityLbl">
+          <DataField>QuantityLbl</DataField>
+        </Field>
+        <Field Name="NetWeightLbl">
+          <DataField>NetWeightLbl</DataField>
+        </Field>
+        <Field Name="DeclartionLbl">
+          <DataField>DeclartionLbl</DataField>
+        </Field>
+        <Field Name="SignatureLbl">
+          <DataField>SignatureLbl</DataField>
+        </Field>
+        <Field Name="SignatureNameLbl">
+          <DataField>SignatureNameLbl</DataField>
+        </Field>
+        <Field Name="SignaturePositionLbl">
+          <DataField>SignaturePositionLbl</DataField>
+        </Field>
+        <Field Name="VATRegNoLbl">
+          <DataField>VATRegNoLbl</DataField>
+        </Field>
+        <Field Name="ShowWorkDescription">
+          <DataField>ShowWorkDescription</DataField>
+        </Field>
+        <Field Name="ItemDescription">
+          <DataField>ItemDescription</DataField>
+        </Field>
+        <Field Name="CountryOfManufacturing">
+          <DataField>CountryOfManufacturing</DataField>
+        </Field>
+        <Field Name="Tariff">
+          <DataField>Tariff</DataField>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+        </Field>
+        <Field Name="QuantityFormat">
+          <DataField>QuantityFormat</DataField>
+        </Field>
+        <Field Name="Price">
+          <DataField>Price</DataField>
+        </Field>
+        <Field Name="NetWeight">
+          <DataField>NetWeight</DataField>
+        </Field>
+        <Field Name="NetWeightFormat">
+          <DataField>NetWeightFormat</DataField>
+        </Field>
+        <Field Name="LineAmount">
+          <DataField>LineAmount</DataField>
+        </Field>
+        <Field Name="VATPct">
+          <DataField>VATPct</DataField>
+        </Field>
+        <Field Name="VATPctFormat">
+          <DataField>VATPctFormat</DataField>
+        </Field>
+        <Field Name="VATAmount">
+          <DataField>VATAmount</DataField>
+        </Field>
+        <Field Name="WorkDescriptionLineNumber">
+          <DataField>WorkDescriptionLineNumber</DataField>
+        </Field>
+        <Field Name="WorkDescriptionLine">
+          <DataField>WorkDescriptionLine</DataField>
+        </Field>
+        <Field Name="TotalWeight">
+          <DataField>TotalWeight</DataField>
+        </Field>
+        <Field Name="TotalWeightFormat">
+          <DataField>TotalWeightFormat</DataField>
+        </Field>
+        <Field Name="TotalValue">
+          <DataField>TotalValue</DataField>
+        </Field>
+        <Field Name="TotalVATAmount">
+          <DataField>TotalVATAmount</DataField>
+        </Field>
+        <Field Name="TotalAmountInclVAT">
+          <DataField>TotalAmountInclVAT</DataField>
+        </Field>
+        <Field Name="CustomerRegistrationNumber">
+          <DataField>CustomerRegistrationNumber</DataField>
+        </Field>
+        <Field Name="DueDate">
+          <DataField>DueDate</DataField>
+        </Field>
+        <Field Name="LocationCode">
+          <DataField>LocationCode</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>
