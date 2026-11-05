@@ -33,9 +33,12 @@ tableextension 80103 "DIMA Opportunity Ext" extends Opportunity
     trigger OnDelete()
     var
         DeliveryLine: Record "DIMA Opportunity Delivery";
+        Broker: Record "DIMA Opportunity Broker";
     begin
         DeliveryLine.SetRange("Opportunity No.", Rec."No.");
         DeliveryLine.DeleteAll();
+        Broker.SetRange("Opportunity No.", Rec."No.");
+        Broker.DeleteAll();
     end;
 
     trigger OnInsert()

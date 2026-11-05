@@ -3,7 +3,7 @@ codeunit 80105 "DIMA Opportunity Events"
     [EventSubscriber(
         ObjectType::Table,
         Database::"Opportunity",
-        'OnBeforeRunQuotePage',
+        OnBeforeRunQuotePage,
         '',
         false,
         false)]
