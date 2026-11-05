@@ -218,9 +218,19 @@ codeunit 80113 "DIMA Opportunity Management"
             ContactBusinessRelation,
             Customer);
 
+
+        /*
+                SalesHeader.Init();
+                SalesHeader."Document Type" := SalesHeader."Document Type"::Order;
+                SalesHeader."Opportunity No." := OpportunityNo;
+                SalesHeader.Insert(true);
+
+                */
+
         SalesHeader.Init();
         SalesHeader."Document Type" := SalesHeader."Document Type"::Order;
         SalesHeader."Opportunity No." := OpportunityNo;
+        SalesHeader."No." := GetNextOrderNo();
         SalesHeader.Insert(true);
 
         SalesHeader.Validate("Sell-to Customer No.", CustomerNo);
@@ -300,4 +310,17 @@ codeunit 80113 "DIMA Opportunity Management"
 
         exit(Customer."No.");
     end;
+
+    ///nuevo para n serie
+    local procedure GetNextOrderNo(): Code[20]
+    var
+        NoSeries: Codeunit "No. Series";
+    begin
+        exit(NoSeries.GetNextNo('PEDIDO-VTA-CRM', Today(), true));
+    end;
+
+
 }
+
+
+
