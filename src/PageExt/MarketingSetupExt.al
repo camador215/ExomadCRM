@@ -2,14 +2,15 @@ pageextension 80102 "DIMA Marketing Setup Ext" extends "Marketing Setup"
 {
     layout
     {
-        addafter(Duplicates)
+        addFirst(Default)
         {
-            group("DIMA Marketing Setup")
+            group("DIMA Opportunity Setup")
             {
-                Caption = 'Oportunidades';
-
+                ShowCaption = false;
                 field("Currency Code"; Rec."Currency Code")
                 {
+                    Caption = 'Cod. Divisa Oportunidad';
+                    Description = 'Código de moneda predeterminado al crear una nueva oportunidad.';
                     ApplicationArea = All;
                 }
             }
