@@ -196,6 +196,7 @@ codeunit 80113 "DIMA Opportunity Management"
         SalesLine: Record "Sales Line";
         CustomerNo: Code[20];
         LineNo: Integer;
+        MarketingSetup: Record "Marketing Setup";
     begin
         if not Opportunity.Get(OpportunityNo) then
             Error('No se encontró la oportunidad %1.', OpportunityNo);
@@ -218,19 +219,14 @@ codeunit 80113 "DIMA Opportunity Management"
             ContactBusinessRelation,
             Customer);
 
-
-        /*
-                SalesHeader.Init();
-                SalesHeader."Document Type" := SalesHeader."Document Type"::Order;
-                SalesHeader."Opportunity No." := OpportunityNo;
-                SalesHeader.Insert(true);
-
-                */
-
         SalesHeader.Init();
         SalesHeader."Document Type" := SalesHeader."Document Type"::Order;
         SalesHeader."Opportunity No." := OpportunityNo;
-        SalesHeader."No." := GetNextOrderNo();
+
+        if MarketingSetup.Get() then
+            if not (MarketingSetup."Sales Order No. Series" = '') then
+                SalesHeader."No." := GetNextOrderNo(MarketingSetup."Sales Order No. Series");
+
         SalesHeader.Insert(true);
 
         SalesHeader.Validate("Sell-to Customer No.", CustomerNo);
@@ -312,11 +308,12 @@ codeunit 80113 "DIMA Opportunity Management"
     end;
 
     ///nuevo para n serie
-    local procedure GetNextOrderNo(): Code[20]
+    local procedure GetNextOrderNo(NoSeriesCode: Code[20]): Code[20]
     var
         NoSeries: Codeunit "No. Series";
+        MarketingSetup: Record "Marketing Setup";
     begin
-        exit(NoSeries.GetNextNo('PEDIDO-VTA-CRM', Today(), true));
+        exit(NoSeries.GetNextNo(NoSeriesCode, Today(), true));
     end;
 
 
