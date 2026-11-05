@@ -250,6 +250,7 @@ codeunit 80113 "DIMA Opportunity Management"
             SalesLine.Insert(true);
 
             SalesLine."Description 2" := DeliveryLine.Descripcion;
+            SalesLine.Validate("Unit Price", DeliveryLine."Precio Unitario");
             SalesLine.Modify(true);
 
         until DeliveryLine.Next() = 0;
